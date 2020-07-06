@@ -1,0 +1,101 @@
+﻿@model HomeEditViewModel
+@{
+    ViewBag.Title = "Edit employee";
+    var avatarPath = $"/images/{(Model.avatarPath ?? Model.avatarPath)}";
+}
+<div class="container bootstrap snippet ">
+    <h1 class="text-center"><span class="glyphicon glyphicon-user"></span>EMPLOYEE INFO</h1>
+    
+    <hr>
+    <!-- edit form column -->
+    <form enctype="multipart/form-data" class="form-horizontal" asp-controller="Home" asp-action="Edit" method="post">
+        <div class="row">
+            <input hidden asp-for="id" />
+            <input hidden asp-for="avatarPath" />
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <img src="@avatarPath" style="width:100px; height:100px;" class="avatar img-circle myImage" alt="avatar" asp-append-version="true">
+                    <br />
+                    <label asp-for="AvatarPath"></label>
+                    <div class="custom-file">
+
+                        <input class="custom-file-input" asp-for="AvatarPath">
+                        <label class="custom-file-label avatarPath" for="custom-file">Choose file</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 personal-info">
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label asp-for="FullName"></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label asp-for="DOB"></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input asp-for="DOB" class="form-control" />
+                        <span asp-validation-for="DOB" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row  form-group">
+                    <div class="col-sm-2">
+                        <label asp-for="Department"></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <select asp-for="Department" class="cusom-select"
+                                asp-items="@Html.GetEnumSelectList<DPM>()">
+                            <option value="">Select a department</option>
+                        </select>
+
+                        <span asp-validation-for="Department" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group my-2">
+                    <div class="col-sm-12 text-right">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-warning">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+        
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        });
+       
+    </script>
+}
+    <hr>

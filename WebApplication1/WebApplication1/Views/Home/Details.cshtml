@@ -1,0 +1,16 @@
+﻿@model HomeDetailViewModel; 
+@{
+
+    ViewBag.Title = Model.Titlename;
+    var avatarPath =$"/images/{(Model.employee.Avatar ?? "avatar.png" )}";
+}
+    <div style="text-align: center">
+        <h1>@ViewBag.Title</h1>
+        <h3>Name: @Model.employee.FullName</h3>
+        <img src="@avatarPath" style="width: 200px; height: 200px"  asp-append-version="true">
+        <h3>DOB: @Model.employee.DOB.Value.ToString("dd/MM/yyyy")</h3>
+        <h3>AGE: @Model.employee.Age</h3>
+        <h3>Email: @Model.employee.Email</h3>
+        <h3>Department: @Model.employee.Department</h3>
+        <a class="btn btn-warning my-2" asp-controller="Home" asp-action="Index">Back</a>
+    </div>

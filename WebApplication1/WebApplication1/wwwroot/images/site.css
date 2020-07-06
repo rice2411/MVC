@@ -1,0 +1,8 @@
+﻿.myImage{
+    height: 250px;
+    width: auto;
+}
+.avatarPath {
+    overflow-x: hidden;
+    width: auto;
+}

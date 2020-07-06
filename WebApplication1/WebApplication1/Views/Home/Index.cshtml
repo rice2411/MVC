@@ -1,0 +1,62 @@
+﻿@{
+    var emps = ViewBag.employees as IEnumerable<Employee>;
+   
+    ViewBag.Title = "Employees list";
+}
+    <div class="row">
+        @foreach (var emp in emps)
+        {
+            var avatarPath = $"/images/{(emp.Avatar ?? "avatar.png")}";
+            <div class="col-sm-3 my-sm-2 text-center">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>@emp.Name</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="@avatarPath" class="card-img-top myImage" style="width: 150px; height: 180px;" asp-append-version="true" >
+                        <br /> <br />
+                        <h6>Email: @emp.Email</h6>
+                        <h6>Department: @emp.Department</h6>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@emp.id" class="btn btn-info">View</a>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-id="@emp.id" class="btn btn-primary">Edit</a>
+                        @*<a asp-controller="Home" asp-action="Delete" asp-route-id="@emp.id" class="btn btn-danger">Delete</a>*@
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#@emp.id.ToString($"delete{emp.id}")">
+                            Delete
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal" id="@emp.id.ToString($"delete{emp.id}")">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center">Are you sure to delete this enmployee</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        @*      <div class="modal-body">
+                            Modal body..
+                        </div>*@
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <form asp-controller="Home" asp-action="Index" method="post">
+                                <button type="submit" class="btn btn-danger"  asp-controller="Home" asp-action="Delete" asp-route-id="@emp.id" >Yes</button>
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+     
+
+    </div>
