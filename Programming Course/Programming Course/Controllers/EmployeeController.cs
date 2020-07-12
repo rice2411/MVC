@@ -41,13 +41,13 @@ namespace Programming_Course.Controllers
         {
             ViewBag.empolyees = employeeRepository.Gets();
 
-            return View();
+            return View("~/Views/Dashboard/Employee/Index.cshtml");
         }
         [HttpGet]
         public ViewResult Create()
         {
    
-            return View();
+            return View("~/Views/Dashboard/Employee/Create.cshtml");
         }
         public string SetEmployeeId()
         {
@@ -115,7 +115,7 @@ namespace Programming_Course.Controllers
                     Avatar = emp.avatar,
                     Role = emp.role
                 };
-                return View(editEmp);
+                return View("~/Views/Dashboard/Employee/Detail.cshtml",editEmp);
             }
             return View();
         }
@@ -139,7 +139,7 @@ namespace Programming_Course.Controllers
                     Avatar = emp.avatar,
                     Role = emp.role
                 };
-                return View(editEmp);
+                return View("~/Views/Dashboard/Employee/Edit.cshtml",editEmp);
             }
             return View();
         }

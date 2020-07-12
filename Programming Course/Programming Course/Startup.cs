@@ -44,6 +44,7 @@ namespace Programming_Course
             services.AddScoped<IBillRepository, SQLBillRepository>();
             services.AddScoped<ICourseRepository, SQLCourseRepository>();
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
+            services.AddScoped<ICartRepository, SQLCartRepository>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DbConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
         }

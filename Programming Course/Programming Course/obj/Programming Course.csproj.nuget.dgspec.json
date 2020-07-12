@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\nvc\\Programming Course\\Programming Course\\Programming Course.csproj": {}
+    "C:\\Users\\USER\\Desktop\\MVC\\Programming Course\\Programming Course\\Programming Course.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\nvc\\Programming Course\\Programming Course\\Programming Course.csproj": {
+    "C:\\Users\\USER\\Desktop\\MVC\\Programming Course\\Programming Course\\Programming Course.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\nvc\\Programming Course\\Programming Course\\Programming Course.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\MVC\\Programming Course\\Programming Course\\Programming Course.csproj",
         "projectName": "Programming Course",
-        "projectPath": "C:\\Users\\USER\\Desktop\\nvc\\Programming Course\\Programming Course\\Programming Course.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\MVC\\Programming Course\\Programming Course\\Programming Course.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\nvc\\Programming Course\\Programming Course\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\MVC\\Programming Course\\Programming Course\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",

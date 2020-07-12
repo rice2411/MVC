@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,12 +13,16 @@ namespace Programming_Course.Models
         {
 
         }
-        public DbSet<Course> Course { get; set; }
-        public DbSet<Bill> Bills { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<Course> Course { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+           
+
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sBHb7N4AosTBSVGs1Ei8mYNxQhsi6OC1T6RYbtQFU/3qTNSGM9OmS82j+0ob6FDqbSIC/K9klqfLBtLDXdqG9A==",
+  "dgSpecHash": "Tf6arNt7fN1oW66TpAjNHecpGGtPq7EJSH/IYQ4EsnqI/CRknTo61gLBHKtqvsPQs22XO+UzcH2HsgUc2PNX5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\nvc\\Programming Course\\Programming Course\\Programming Course.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Desktop\\MVC\\Programming Course\\Programming Course\\Programming Course.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\jquery\\1.8.0\\jquery.1.8.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\jquery.validation\\1.8.0.1\\jquery.validation.1.8.0.1.nupkg.sha512",

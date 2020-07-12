@@ -252,6 +252,28 @@ namespace Programming_Course.Migrations
                     b.ToTable("Bills");
                 });
 
+            modelBuilder.Entity("Programming_Course.Models.Cart", b =>
+                {
+                    b.Property<string>("cartId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("courseImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("courseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("coursePrice")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("user")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("cartId");
+
+                    b.ToTable("Carts");
+                });
+
             modelBuilder.Entity("Programming_Course.Models.Course", b =>
                 {
                     b.Property<string>("courseId")

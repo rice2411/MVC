@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4+KRuLDpxV56jTiMfH3YqjBVI2cYl/F/w7kTfa7+fQm831gLh4gBTzpub6gEKfyFo1SRDvPV7OsECfFPnCoMZw==",
+  "dgSpecHash": "PsnMQsne8ht8mKzbcKgHOuno2ft8Q5y0GLI+Jd1tAwEOESIAX9/qfR3AvlvtmQcYaSF1x2IYAiZQ2r6Bh54yqQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\nvc\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Desktop\\MVC\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\jquery\\1.8.0\\jquery.1.8.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\jquery.validation\\1.8.0.1\\jquery.validation.1.8.0.1.nupkg.sha512",

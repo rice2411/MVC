@@ -1,7 +1,7 @@
-﻿@model HomeDetailViewModel
+﻿@model List<HomeDetailViewModel>
 @inject UserManager<ApplicationUser> userManager;
 @{
-    var image = $"/images/{(Model.image)}";
+    var image = $"/images/{(Model[0].image)}";
 }
 <div class="container" data-aos="fade-up" data-aos-duration="3000">
     <div class="container bootstrap snippet">
@@ -13,7 +13,7 @@
                 <div class="text-center">
                     <img src="@image" style="width: 100%; height:100%">
                     <br /><br />
-                    <a asp-controller="Bill" asp-action="Create" asp-route-id="@Model.courseId" class="btn btn-primary">BUY</a>
+                    <a asp-controller="Bill" asp-action="Create" asp-route-id="@Model[0].courseId" class="btn btn-primary">BUY</a>
                     <a class="btn btn-warning" asp-controller="Home" asp-action="Index">BACK</a>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                         <h5>Khóa học CGC:</h5>
                     </div>
                     <div class="col-sm-9">
-                        <h5> @Model.name</h5>
+                        <h5> @Model[0].name</h5>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -31,7 +31,7 @@
                         <h5>Giá:</h5>
                     </div>
                     <div class="col-sm-9">
-                        <h5> @Model.price</h5>
+                        <h5> @Model[0].price</h5>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -39,7 +39,7 @@
                         <h5>Mô tả:</h5>
                     </div>
                     <div class="col-sm-9">
-                        <h5> @Model.description </h5>
+                        <h5> @Model[0].description </h5>
                     </div>
                 </div>
             </div>

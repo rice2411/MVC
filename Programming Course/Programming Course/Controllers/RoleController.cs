@@ -27,12 +27,12 @@ namespace Programming_Course.Controllers
                 id = r.Id,
                 roleName = r.Name
             }).ToList();
-            return View(model);
+            return View("~/Views/Dashboard/Role/Index.cshtml",model);
         }
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/Dashboard/Role/Create.cshtml");
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreateRoleViewModel model)
@@ -72,7 +72,7 @@ namespace Programming_Course.Controllers
                     roleName = role.Name
                 };
 
-                return View(model);
+                return View("~/Views/Dashboard/Role/Edit.cshtml",model);
             }    
 
             return View();

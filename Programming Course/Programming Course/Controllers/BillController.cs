@@ -11,25 +11,28 @@ using System.Threading.Tasks;
 
 namespace Programming_Course.Controllers
 {
-    [Authorize(Roles = "System Admin, Admin, PayRoll")]
+    [Authorize(Roles = "System Admin, Admin, Sale")]
     public class BillController : Controller
     {
         private IBillRepository billRepository;
         private IWebHostEnvironment webHostEnvironment;
         public ICourseRepository courseRepository;
         private readonly UserManager<ApplicationUser> userManager;
-        public BillController(ICourseRepository courseRepository, IBillRepository billRepository, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager)
+        private readonly ICartRepository cartRepository;
+
+        public BillController(ICourseRepository courseRepository, IBillRepository billRepository, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, ICartRepository cartRepository)
         {
             this.billRepository = billRepository;
             this.webHostEnvironment = webHostEnvironment;
             this.userManager = userManager;
+            this.cartRepository = cartRepository;
             this.courseRepository = courseRepository;
         }
 
         public IActionResult Index()
         {
             ViewBag.Bills = billRepository.Gets();
-            return View();
+            return View("~/Views/Dashboard/Bill/Index.cshtml");
         }
         [HttpGet]
         [AllowAnonymous]
@@ -46,7 +49,8 @@ namespace Programming_Course.Controllers
                 {
                     couresId = course.courseId,
                     couresName = course.name,
-                    couresImage = course.image
+                    couresImage = course.image,
+                    coursePrice = course.price.ToString()
                 };
                 return View(model);
             }
@@ -69,7 +73,16 @@ namespace Programming_Course.Controllers
                     couresName = course.name
 
                 };
+                var cart = new Cart()
+                {
+                    cartId = $"{Guid.NewGuid()}",
+                    user = model.user,
+                    courseImage = model.couresImage,
+                    courseName = model.couresName,
+                    coursePrice = model.coursePrice
+                };
                 billRepository.Create(bill);
+                cartRepository.Create(cart);
                 return RedirectToAction("Thank", "Bill");
             }
             return View(model);
@@ -84,6 +97,12 @@ namespace Programming_Course.Controllers
         [AllowAnonymous]
         public IActionResult Thank()
         {
+            return View();
+        }
+        [AllowAnonymous]
+        public IActionResult Cart()
+        {
+            ViewBag.Carts = cartRepository.Gets();
             return View();
         }
     }

@@ -41,12 +41,12 @@ namespace Programming_Course.Controllers
         {
             ViewBag.courses = courseRepository.Gets();
 
-            return View();
+            return View("~/Views/Dashboard/Course/Index.cshtml");
         }
         [HttpGet]
         public ViewResult Create()
         {
-            return View();
+            return View("~/Views/Dashboard/Course/Create.cshtml");
         }
         [HttpPost]
         public IActionResult Create(CourseCreateViewModel c)
@@ -95,7 +95,7 @@ namespace Programming_Course.Controllers
                     description = course.description,
                     Image = course.image
                 };
-                return View(editCourse);
+                return View("~/Views/Dashboard/Course/Edit.cshtml",editCourse);
             }
             return View();
         }
@@ -135,7 +135,7 @@ namespace Programming_Course.Controllers
 
                 if (courseRepository.Edit(newCourse) != null)
                 {
-                    return RedirectToAction("Detail", "Home", new { id = newCourse.courseId });
+                    return RedirectToAction("Index", "Course", new { id = newCourse.courseId });
                 }
             }
           

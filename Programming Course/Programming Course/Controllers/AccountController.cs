@@ -115,8 +115,8 @@ namespace Programming_Course.Controllers
                 {
                     user.Role = GetRoleName(user.Id);
                 }
-             
-                return View(model);
+
+                return View("~/Views/Dashboard/Account/Index.cshtml",model);
             }
             return View();
         }
@@ -174,7 +174,7 @@ namespace Programming_Course.Controllers
         public IActionResult Create()
         {
             ViewBag.Roles = roleManager.Roles;
-            return View();
+            return View("~/Views/Dashboard/Account/Create.cshtml");
         }
         [HttpPost]
         public async Task<IActionResult> CreateAsync(UserCreateViewModel model)
@@ -237,7 +237,7 @@ namespace Programming_Course.Controllers
                     model.RoleId = role.Id;
                 }
                 ViewBag.Roles = roleManager.Roles;
-                return View(model);
+                return View("~/Views/Dashboard/Account/Edit.cshtml",model);
             }    
     
             return View();
@@ -294,7 +294,7 @@ namespace Programming_Course.Controllers
         public IActionResult ChangePassWord()
         {
 
-            return View();
+            return View("~/Views/Dashboard/Account/ChangePassWord.cshtml");
         }
         [HttpPost]
         [AllowAnonymous]

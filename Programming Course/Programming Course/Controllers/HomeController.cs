@@ -32,6 +32,7 @@ namespace Programming_Course.Controllers
         public IActionResult Detail(string id)
         {
             var course = courseRepository.Get(id);
+            var listCourse = new List<HomeDetailViewModel>();
             if(course == null)
             {
                 return View("~/Views/Error/CourseNotFound.cshtml");
@@ -46,7 +47,8 @@ namespace Programming_Course.Controllers
                     image = course.image,
                     price = course.price
                 };
-                return View(detailCourse);
+                listCourse.Add(detailCourse);
+                return View(listCourse);
             }
             return View();
          
@@ -67,7 +69,13 @@ namespace Programming_Course.Controllers
                     var courseResult = new List<HomeDetailViewModel>();
                     var courses = courseRepository.Gets();
                     var names = from course in courses select course.name;
-                    var key = model[0].name.Trim().ToLower();
+                    var keyBefore = model[0].name.Trim().ToLower();
+                    string key = "";
+                    for(int i =0; i< keyBefore.Length;i++)
+                    {
+                        if (!Char.IsWhiteSpace(keyBefore[i]))
+                            key += keyBefore[i];
+                    }
                   foreach (var name in names)
                     {
                         if(name.ToLower().Contains(key))
@@ -104,5 +112,6 @@ namespace Programming_Course.Controllers
             }
             return View();
         }
+        
     }
 }

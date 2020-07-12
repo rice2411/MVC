@@ -22,5 +22,7 @@ namespace Programming_Course.ViewModels
         [Required]
         [Display(Name = "PhoneNumber")]
         public string customerPhoneNumber { get; set; }
+        public string user { get; set; }
+        public string coursePrice { get; set; }
     }
 }
