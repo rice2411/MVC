@@ -16,7 +16,7 @@ using Programming_Course.Models;
 
 namespace Programming_Course
 {
-    //dep trai co gi sai
+
     public class Startup
     {
         private readonly IConfiguration configuration;
