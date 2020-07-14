@@ -1,0 +1,66 @@
+﻿
+
+@{
+    ViewBag.Title = "Film Management";
+    var films = ViewBag.films as IEnumerable<Film>;
+}
+<style>
+    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+        background-color: gray;
+    }
+
+</style>
+<h3 data-aos="fade-down" data-aos-duration="2000" class="text-light">FILM FILM</h3>
+<div class="dropdown" data-aos="fade-down" data-aos-duration="2000" style="z-index:1000;">
+    <div style="display: inline">
+        <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mangagement
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-controller="Film" asp-action="Index">Film</a>
+            <a class="dropdown-item" asp-controller="Screening" asp-action="Index">Screening</a>
+            <a class="dropdown-item" href="#">Room</a>
+            <a class="dropdown-item" href="#">Role</a>
+        </div>
+        <a asp-controller="Film" asp-action="Create" class="btn btn-success mr-auto">NEW Film</a>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover mt-2 text-center" style="width: auto;" data-aos="fade-down" data-aos-duration="2000">
+    <thead class="thead-dark border-light" style="border-color: white; ">
+        <tr class="text-center">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Poster</th>
+            <th>Time</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var film in films)
+        {
+            var avatarPath = $"/images/{(film.filmPoster ?? "filmdefault.jpg")}";
+            <tr class="text-light">
+                <td>@film.filmId</td>
+                <td>@film.filmName</td>
+                <td><img src="@avatarPath" style="height :50px; width:50px" /></td>
+                <td>@film.timeOfFilm</td>
+                <td style="overflow-x: hidden; ">@film.filmDescription</td>
+                <td>
+                    <a asp-controller="Film" asp-action="Edit" asp-route-id="@film.filmId" class="btn btn-warning">Edit</a>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+
+        AOS.init();
+    </script>
+}
