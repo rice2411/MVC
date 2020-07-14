@@ -1,0 +1,62 @@
+﻿
+
+@{
+    ViewBag.Title = "Film Management";
+    var screens = ViewBag.screens as IEnumerable<Screening>;
+   
+}
+<h3 data-aos="fade-down" data-aos-duration="2000" class="text-light">SCREENING MANAGEMENT</h3>
+<div class="dropdown" data-aos="fade-down" data-aos-duration="2000" style="z-index:1000;">
+    <div style="display: inline">
+        <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mangagement
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-controller="Film" asp-action="Index">Film</a>
+            <a class="dropdown-item" asp-controller="Screening" asp-action="Index">Screening</a>
+            <a class="dropdown-item" href="#">Room</a>
+            <a class="dropdown-item" href="#">Role</a>
+        </div>
+        <a asp-controller="Screening" asp-action="Create" class="btn btn-success mr-auto">NEW SCREENING</a>
+    </div>
+</div>
+
+<table class="table table-bordered table-hover mt-2" style="width: auto;" data-aos="fade-down" data-aos-duration="2000">
+    <thead class="thead-dark border-light" style="border-color: white; ">
+        <tr class="text-center">
+            <th>Screen's ID</th>
+            <th>Room's ID</th>
+            <th>Film's ID</th>
+            <th>Time Start</th>
+            <th>Time End</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var screen in screens)
+        {
+           
+        <tr class="text-light">
+            <td>@screen.screeningID</td>
+            <td>@screen.roomId</td>
+            <td>@screen.filmId</td>
+            <td>@screen.timeStart</td>
+            <td>@screen.timeEnd</td>
+ 
+            <td>
+                <a asp-controller="Film" asp-action="Edit" asp-route-id="@screen.screeningID" class="btn btn-warning">Edit</a>
+
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+
+        AOS.init();
+    </script>
+}

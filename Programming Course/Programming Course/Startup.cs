@@ -16,8 +16,10 @@ using Programming_Course.Models;
 
 namespace Programming_Course
 {
+
     public class Startup
     {
+        //deptraicogisai
         private readonly IConfiguration configuration;
 
         public Startup(IConfiguration configuration)
